@@ -1,0 +1,221 @@
+#include <Servo.h>
+
+// Pin assignments for first sensor
+const int irPin1 = 3;        // Pin connected to the first IR sensor
+const int servoPin1 = 10;    // First servo motor control pin
+
+// Pin assignments for second sensor
+const int irPin2 = 13;       // Pin connected to the second IR sensor
+const int servoPin2 = 9;     // Second servo motor control pin
+
+const int greenLedPin = 8;    // Green LED control pin for the original module
+const int redLedPin = 6;      // Red LED control pin for the original module
+const int yellowLedPin = 7;   // Yellow LED control pin for the original module
+
+// Pin assignments for the new traffic light module
+const int greenLedPin2 = 5;   // Green LED control pin for the new module
+const int redLedPin2 = 4;     // Red LED control pin for the new module
+const int yellowLedPin2 = 11; // Yellow LED control pin for the new module
+
+const int buzzerPin = 15;    // Buzzer control pin
+Servo servo1;                 // First servo motor object
+Servo servo2;                 // Second servo motor object
+
+// Variables
+int irValue1;               // IR sensor value from the first sensor
+int irValue2;               // IR sensor value from the second sensor
+
+void setup() {
+  pinMode(irPin1, INPUT);           // Set IR sensor pin as input
+
+  pinMode(irPin2, INPUT);           // Set IR sensor pin as input
+
+  pinMode(buzzerPin, OUTPUT);       // Set buzzer pin as output
+
+  servo1.attach(servoPin1);         // Attach first servo motor to the pin
+  servo2.attach(servoPin2);         // Attach second servo motor to the pin
+
+  pinMode(greenLedPin, OUTPUT);     // Set green LED pin for the original module as output
+  pinMode(redLedPin, OUTPUT);       // Set red LED pin for the original module as output
+
+#include <Servo.h>
+
+// Pin assignments for first sensor
+const int irPin1 = 3;        // Pin connected to the first IR sensor
+const int servoPin1 = 10;    // First servo motor control pin
+
+// Pin assignments for second sensor
+const int irPin2 = 13;       // Pin connected to the second IR sensor
+const int servoPin2 = 9;     // Second servo motor control pin
+
+const int greenLedPin = 8;    // Green LED control pin for the original module
+const int redLedPin = 6;      // Red LED control pin for the original module
+const int yellowLedPin = 7;   // Yellow LED control pin for the original module
+
+// Pin assignments for the new traffic light module
+const int greenLedPin2 = 5;   // Green LED control pin for the new module
+const int redLedPin2 = 4;     // Red LED control pin for the new module
+const int yellowLedPin2 = 11; // Yellow LED control pin for the new module
+
+const int buzzerPin = 15;    // Buzzer control pin
+Servo servo1;                 // First servo motor object
+Servo servo2;                 // Second servo motor object
+
+// Variables
+int irValue1;               // IR sensor value from the first sensor
+int irValue2;               // IR sensor value from the second sensor
+
+void setup() {
+  pinMode(irPin1, INPUT);           // Set IR sensor pin as input
+
+  pinMode(irPin2, INPUT);           // Set IR sensor pin as input
+
+  pinMode(buzzerPin, OUTPUT);       // Set buzzer pin as output
+
+  servo1.attach(servoPin1);         // Attach first servo motor to the pin
+  servo2.attach(servoPin2);         // Attach second servo motor to the pin
+
+  pinMode(greenLedPin, OUTPUT);     // Set green LED pin for the original module as output
+  pinMode(redLedPin, OUTPUT);       // Set red LED pin for the original module as output
+
+digitalWrite(redLedPin2, HIGH);
+    // Turn off the yellow LED for the new module
+    digitalWrite(yellowLedPin2, LOW);
+    tone(buzzerPin, 500);
+    delay(1500); // Wait for 7 seconds
+    // Change the LED states after 7 seconds
+    digitalWrite(yellowLedPin, LOW);
+    digitalWrite(redLedPin, HIGH);
+    digitalWrite(yellowLedPin2, HIGH);
+    digitalWrite(redLedPin2, LOW);
+    noTone(buzzerPin);
+    delay(1000);
+  } else if (irValue2 == LOW) {
+    // Object detected by the second sensor, move both servo motors up
+    servo1.write(0);
+    servo2.write(0);
+
+    // Turn off the green LED for the original module
+    digitalWrite(greenLedPin, HIGH);
+    // Turn on the red LED for the original module
+    digitalWrite(redLedPin, LOW);
+    // Turn off the yellow LED for the original module
+    digitalWrite(yellowLedPin, LOW);
+
+    // Turn off the green LED for the new module
+    digitalWrite(greenLedPin2, HIGH);
+    // Turn off the red LED for the new module
+    digitalWrite(redLedPin2, LOW);
+    // Turn on the yellow LED for the new module
+    digitalWrite(yellowLedPin2, LOW);
+
+    // Deactivate the buzzer
+    noTone(buzzerPin);
+  } else {
+    // No object detected, move both servo motors down
+    servo1.write(0);
+    servo2.write(0);
+
+    // Turn off the green LED for the original module
+    digitalWrite(greenLedPin, HIGH);
+    // Turn on the red LED for the original module
+    digitalWrite(redLedPin, LOW);
+    // Turn off the yellow LED for the original module
+    digitalWrite(yellowLedPin, LOW);
+
+// Turn off the green LED for the new module
+    digitalWrite(greenLedPin2, HIGH);
+    // Turn off the red LED for the new module
+    digitalWrite(redLedPin2, LOW);
+    // Turn on the yellow LED for the new module
+    digitalWrite(yellowLedPin2, LOW);
+
+    // Deactivate the buzzer
+    noTone(buzzerPin);
+  }
+  if (irValue2 == LOW) {
+    // Object detected by the first sensor, move both servo motors up
+    
+
+    digitalWrite(greenLedPin, LOW);
+    digitalWrite(yellowLedPin, LOW);
+    digitalWrite(redLedPin, HIGH);
+    digitalWrite(greenLedPin2, LOW);
+    digitalWrite(yellowLedPin2, HIGH);
+    digitalWrite(redLedPin2, LOW);
+    tone(buzzerPin, 500);
+    delay(200);
+
+    servo1.write(90);
+    servo2.write(90);
+
+    // Turn off the green LED for the original module
+    digitalWrite(greenLedPin, LOW);
+    // Turn on the red LED for the original module
+    digitalWrite(redLedPin, LOW);
+    // Turn on the yellow LED for the original module
+    digitalWrite(yellowLedPin, HIGH);
+
+    // Turn off the green LED for the new module
+    digitalWrite(greenLedPin2, LOW);
+    // Turn on the red LED for the new module
+    digitalWrite(redLedPin2, HIGH);
+    // Turn off the yellow LED for the new module
+    digitalWrite(yellowLedPin2, LOW);
+    tone(buzzerPin, 500);
+    delay(1500); // Wait for 7 seconds
+    // Change the LED states after 7 seconds
+    digitalWrite(yellowLedPin, LOW);
+    digitalWrite(redLedPin, HIGH);
+    digitalWrite(yellowLedPin2, HIGH);
+
+digitalWrite(redLedPin2, LOW);
+    noTone(buzzerPin);
+    delay(1000);
+  } else if (irValue1 == LOW) {
+    // Object detected by the second sensor, move both servo motors up
+    servo1.write(0);
+    servo2.write(0);
+
+    // Turn off the green LED for the original module
+    digitalWrite(greenLedPin, HIGH);
+    // Turn on the red LED for the original module
+    digitalWrite(redLedPin, LOW);
+    // Turn off the yellow LED for the original module
+    digitalWrite(yellowLedPin, LOW);
+
+    // Turn off the green LED for the new module
+    digitalWrite(greenLedPin2, HIGH);
+    // Turn off the red LED for the new module
+    digitalWrite(redLedPin2, LOW);
+    // Turn on the yellow LED for the new module
+    digitalWrite(yellowLedPin2, LOW);
+
+    // Deactivate the buzzer
+    noTone(buzzerPin);
+  } else {
+    // No object detected, move both servo motors down
+    servo1.write(0);
+    servo2.write(0);
+
+    // Turn off the green LED for the original module
+    digitalWrite(greenLedPin, HIGH);
+    // Turn on the red LED for the original module
+    digitalWrite(redLedPin, LOW);
+    // Turn off the yellow LED for the original module
+    digitalWrite(yellowLedPin, LOW);
+
+    // Turn off the green LED for the new module
+    digitalWrite(greenLedPin2, HIGH);
+    // Turn off the red LED for the new module
+    digitalWrite(redLedPin2, LOW);
+    // Turn on the yellow LED for the new module
+    digitalWrite(yellowLedPin2, LOW);
+
+    // Deactivate the buzzer
+    noTone(buzzerPin);
+}
+
+  
+  delay(10); // Delay between distance measurements
+}

@@ -10,3 +10,5 @@ Here are some pictures that were taken during the event:
 ![o](https://github.com/fsdkumk/IoT-Traffic-Management-System-using-ESP8266/assets/141599942/25945809-20d6-42d2-834b-3679bc589e5a)
 
 ![t](https://github.com/fsdkumk/IoT-Traffic-Management-System-using-ESP8266/assets/141599942/7bf2db5a-5507-482d-8582-32abe553390f)
+
+![image](https://github.com/fsdkumk/IoT-Traffic-Management-System-using-ESP8266/assets/141599942/8845cd67-1ff4-423a-957f-66c6151d0729)
